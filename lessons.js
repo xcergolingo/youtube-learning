@@ -4,35 +4,35 @@ const videoData = {
             {
                 title: "Spanish Alphabet & Pronunciation",
                 description: "Learn the Spanish alphabet and basic pronunciation with clear examples",
-                videoId: "KfkZa6D4vAo", // SpanishPod101
+                videoId: "RzXz4OTgU3w", // Updated SpanishPod101 alphabet
                 channel: "SpanishPod101",
                 duration: "15:32"
             },
             {
                 title: "Basic Spanish Greetings",
                 description: "Essential greetings and introductions for Spanish beginners",
-                videoId: "_eDfwTqCWa8", // Learn Spanish with Anja
+                videoId: "ylKWkYVNzuk", // Butterfly Spanish beginner
                 channel: "Learn Spanish with Anja", 
                 duration: "8:45"
             },
             {
                 title: "Spanish Gender & Articles",
                 description: "Understanding masculine and feminine nouns in Spanish",
-                videoId: "QKYVvkZuGg8", // SpanishDict
+                videoId: "5fJm-0XI1FQ", // Butterfly Spanish lesson 1
                 channel: "SpanishDict",
                 duration: "12:20"
             },
             {
                 title: "Present Tense Regular Verbs",
                 description: "Learn how to conjugate regular Spanish verbs in present tense",
-                videoId: "aQnSW3OWW4M", // Spanish Playground
+                videoId: "G2IYVzWP1x0", // Updated present tense verbs
                 channel: "Spanish Playground",
                 duration: "18:15"
             },
             {
                 title: "Numbers 1-100 in Spanish",
                 description: "Master Spanish numbers from 1 to 100 with pronunciation practice",
-                videoId: "ckYYI-jdDlI", // CultureAlley Spanish
+                videoId: "0FnOPH7xvCU", // Numbers pronunciation
                 channel: "CultureAlley Spanish",
                 duration: "22:40"
             }
@@ -91,7 +91,7 @@ const videoData = {
             {
                 title: "French Alphabet & Basic Pronunciation",
                 description: "Learn the French alphabet and essential pronunciation rules",
-                videoId: "8LSJkUhbzpA", // FrenchPod101
+                videoId: "dOhgaw8tKZI", // Updated French alphabet
                 channel: "FrenchPod101",
                 duration: "12:45"
             },
@@ -112,7 +112,7 @@ const videoData = {
             {
                 title: "French Numbers 1-100",
                 description: "Learn French numbers with proper pronunciation",
-                videoId: "UsEz58OstereotypesB", // Coffee Break French
+                videoId: "z8nOe9JjK8Q", // Updated French numbers
                 channel: "Coffee Break French",
                 duration: "16:55"
             }
@@ -164,7 +164,7 @@ const videoData = {
             {
                 title: "German Alphabet & Pronunciation",
                 description: "Learn the German alphabet with perfect pronunciation",
-                videoId: "RzXz4OTgU3w", // GermanPod101
+                videoId: "YnCqiEFKudM", // Updated German alphabet
                 channel: "GermanPod101",
                 duration: "14:25"
             },
@@ -237,7 +237,7 @@ const videoData = {
             {
                 title: "English Alphabet & Pronunciation",
                 description: "Learn English letters and basic pronunciation",
-                videoId: "yT2tpFZGUzE", // English with Lucy
+                videoId: "xZb2qhOpHuM", // Updated English alphabet
                 channel: "English with Lucy",
                 duration: "13:45"
             },

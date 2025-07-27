@@ -3,74 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PolyLearn - Learn Languages with YouTube</title>
+    <title>GoLinGoLearn - Learn Languages with YouTube</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="app">
         <header class="header">
             <div class="container">
-                <h1 class="logo" data-translate="site_title">PolyLearn</h1>
-                <div class="language-selector">
-                    <select id="ui-language" onchange="changeUILanguage(this.value)">
-                        <option value="en">English</option>
-                        <option value="es">Spanish</option>
-                        <option value="fr">French</option>
-                        <option value="de">German</option>
-                        <option value="pt">Portuguese</option>
-                        <option value="zh">中文</option>
-                        <option value="ja">日本語</option>
-                    </select>
-                </div>
+                <h1 class="logo">GoLinGoLearn</h1>
             </div>
         </header>
 
         <main class="main">
             <div class="container">
-                <section id="welcome-screen" class="welcome-screen">
-                    <h2 data-translate="welcome_title">Welcome to PolyLearn</h2>
-                    <p data-translate="welcome_subtitle">Learn languages through curated YouTube videos</p>
-                    
-                    <div class="setup-form">
-                        
-                        <div class="form-group">
-                            <label data-translate="target_language_label">Which language would you like to learn?</label>
-                            <select id="target-language">
-                                <option value="es">Spanish</option>
-                                <option value="fr">French</option>
-                                <option value="de">German</option>
-                                <option value="en">English</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label data-translate="level_label">What's your current level?</label>
-                            <select id="proficiency-level">
-                                <option value="beginner" data-translate="level_beginner">Beginner</option>
-                                <option value="elementary" data-translate="level_elementary">Elementary</option>
-                                <option value="intermediate" data-translate="level_intermediate">Intermediate</option>
-                                <option value="advanced" data-translate="level_advanced">Advanced</option>
-                            </select>
-                        </div>
-                        
-                        <button id="start-learning" class="btn-primary" data-translate="start_button">Start Learning</button>
-                    </div>
-                </section>
+                <!-- Welcome screen removed - users go directly to dashboard -->
 
                 <section id="learning-dashboard" class="learning-dashboard hidden">
                     <div class="dashboard-header">
-                        <h2 data-translate="dashboard_title">Your Learning Journey</h2>
-                        <div class="language-info">
-                            <span>Learning: <strong id="current-language">Spanish</strong></span>
-                            <span>Level: <strong id="current-level">Beginner</strong></span>
+                        <h2>Your Learning Journey</h2>
+                        <div class="language-controls">
+                            <div class="control-group">
+                                <label>Learning Language:</label>
+                                <select id="language-selector">
+                                    <option value="es">Spanish</option>
+                                    <option value="fr">French</option>
+                                    <option value="de">German</option>
+                                    <option value="en">English</option>
+                                </select>
+                            </div>
+                            <div class="control-group">
+                                <label>Current Level:</label>
+                                <select id="level-selector">
+                                    <option value="beginner">Beginner</option>
+                                    <option value="elementary">Elementary</option>
+                                    <option value="intermediate">Intermediate</option>
+                                    <option value="advanced">Advanced</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="progress-summary">
                             <div class="progress-item">
-                                <span data-translate="videos_watched">Videos Watched</span>
+                                <span>Videos Watched</span>
                                 <span id="videos-watched">0</span>
                             </div>
                             <div class="progress-item">
-                                <span data-translate="total_time">Total Watch Time</span>
+                                <span>Total Watch Time</span>
                                 <span id="total-time">0 min</span>
                             </div>
                         </div>
@@ -78,8 +55,8 @@
 
                     <div class="level-categories">
                         <div class="level-card" onclick="openLevel('beginner')">
-                            <h3 data-translate="level_beginner">Beginner</h3>
-                            <p data-translate="beginner_description">Start your language journey with basics</p>
+                            <h3>Beginner</h3>
+                            <p>Start your language journey with basics</p>
                             <div class="video-count"><span id="beginner-count">0</span> videos</div>
                             <div class="progress-bar">
                                 <div class="progress-fill" id="beginner-progress" style="width: 0%"></div>
@@ -87,8 +64,8 @@
                         </div>
                         
                         <div class="level-card" onclick="openLevel('elementary')">
-                            <h3 data-translate="level_elementary">Elementary</h3>
-                            <p data-translate="elementary_description">Build on your foundation</p>
+                            <h3>Elementary</h3>
+                            <p>Build on your foundation</p>
                             <div class="video-count"><span id="elementary-count">0</span> videos</div>
                             <div class="progress-bar">
                                 <div class="progress-fill" id="elementary-progress" style="width: 0%"></div>
@@ -96,8 +73,8 @@
                         </div>
                         
                         <div class="level-card" onclick="openLevel('intermediate')">
-                            <h3 data-translate="level_intermediate">Intermediate</h3>
-                            <p data-translate="intermediate_description">Develop fluency and confidence</p>
+                            <h3>Intermediate</h3>
+                            <p>Develop fluency and confidence</p>
                             <div class="video-count"><span id="intermediate-count">0</span> videos</div>
                             <div class="progress-bar">
                                 <div class="progress-fill" id="intermediate-progress" style="width: 0%"></div>
@@ -105,8 +82,8 @@
                         </div>
                         
                         <div class="level-card" onclick="openLevel('advanced')">
-                            <h3 data-translate="level_advanced">Advanced</h3>
-                            <p data-translate="advanced_description">Master complex concepts</p>
+                            <h3>Advanced</h3>
+                            <p>Master complex concepts</p>
                             <div class="video-count"><span id="advanced-count">0</span> videos</div>
                             <div class="progress-bar">
                                 <div class="progress-fill" id="advanced-progress" style="width: 0%"></div>
@@ -117,7 +94,7 @@
 
                 <section id="video-view" class="video-view hidden">
                     <div class="video-header">
-                        <button id="back-to-dashboard" class="btn-secondary" data-translate="back_button">← Back</button>
+                        <button id="back-to-dashboard" class="btn-secondary">← Back</button>
                         <h2 id="video-title"></h2>
                         <div class="video-progress">
                             <span id="video-progress-text">1 / 5</span>
@@ -141,9 +118,9 @@
                         </div>
                         
                         <div class="video-controls">
-                            <button id="prev-video" class="btn-secondary" data-translate="prev_video">← Previous</button>
-                            <button id="mark-watched" class="btn-primary" data-translate="mark_watched">Mark as Watched</button>
-                            <button id="next-video" class="btn-primary" data-translate="next_video">Next →</button>
+                            <button id="prev-video" class="btn-secondary">← Previous</button>
+                            <button id="mark-watched" class="btn-primary">Mark as Watched</button>
+                            <button id="next-video" class="btn-primary">Next →</button>
                         </div>
                     </div>
                 </section>
@@ -152,7 +129,6 @@
     </div>
 
     <script src="https://www.youtube.com/iframe_api"></script>
-    <script src="translations.js"></script>
     <script src="lessons.js"></script>
     <script src="app.js"></script>
 </body>

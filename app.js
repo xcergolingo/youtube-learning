@@ -10,26 +10,24 @@ class LanguageLearningApp {
 
     init() {
         this.setupEventListeners();
-        loadUILanguage();
         
-        if (this.userData.isSetup) {
-            this.showDashboard();
-        } else {
-            this.showWelcomeScreen();
-        }
+        // Always go directly to dashboard
+        this.showDashboard();
     }
 
     setupEventListeners() {
-        document.getElementById('start-learning').addEventListener('click', () => this.startLearning());
+        document.getElementById('start-learning')?.addEventListener('click', () => this.startLearning());
         document.getElementById('back-to-dashboard').addEventListener('click', () => this.showDashboard());
         document.getElementById('mark-watched').addEventListener('click', () => this.markVideoWatched());
         document.getElementById('prev-video').addEventListener('click', () => this.previousVideo());
         document.getElementById('next-video').addEventListener('click', () => this.nextVideo());
+        document.getElementById('language-selector')?.addEventListener('change', (e) => this.changeLanguage(e.target.value));
+        document.getElementById('level-selector')?.addEventListener('change', (e) => this.changeLevel(e.target.value));
     }
 
     loadUserData() {
         const defaultData = {
-            isSetup: false,
+            isSetup: true,
             targetLanguage: 'es',
             proficiencyLevel: 'beginner',
             progress: {
@@ -58,24 +56,29 @@ class LanguageLearningApp {
     }
 
     showWelcomeScreen() {
-        document.getElementById('welcome-screen').classList.remove('hidden');
-        document.getElementById('learning-dashboard').classList.add('hidden');
-        document.getElementById('video-view').classList.add('hidden');
+        // Welcome screen removed - redirect to dashboard
+        this.showDashboard();
     }
 
     showDashboard() {
-        document.getElementById('welcome-screen').classList.add('hidden');
-        document.getElementById('learning-dashboard').classList.remove('hidden');
-        document.getElementById('video-view').classList.add('hidden');
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const learningDashboard = document.getElementById('learning-dashboard');
+        const videoView = document.getElementById('video-view');
+        
+        if (welcomeScreen) welcomeScreen.classList.add('hidden');
+        if (learningDashboard) learningDashboard.classList.remove('hidden');
+        if (videoView) videoView.classList.add('hidden');
         
         this.updateDashboard();
     }
 
     updateDashboard() {
-        // Update language info
-        const languageNames = { es: 'Spanish', fr: 'French', de: 'German', en: 'English' };
-        document.getElementById('current-language').textContent = languageNames[this.userData.targetLanguage];
-        document.getElementById('current-level').textContent = this.userData.proficiencyLevel;
+        // Update language and level selectors
+        const languageSelector = document.getElementById('language-selector');
+        const levelSelector = document.getElementById('level-selector');
+        
+        if (languageSelector) languageSelector.value = this.userData.targetLanguage;
+        if (levelSelector) levelSelector.value = this.userData.proficiencyLevel;
         
         // Update progress summary
         const totalVideosWatched = Object.values(this.userData.progress).reduce((sum, level) => sum + level.videosWatched.length, 0);
@@ -134,9 +137,13 @@ class LanguageLearningApp {
     }
 
     showVideoView() {
-        document.getElementById('welcome-screen').classList.add('hidden');
-        document.getElementById('learning-dashboard').classList.add('hidden');
-        document.getElementById('video-view').classList.remove('hidden');
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const learningDashboard = document.getElementById('learning-dashboard');
+        const videoView = document.getElementById('video-view');
+        
+        if (welcomeScreen) welcomeScreen.classList.add('hidden');
+        if (learningDashboard) learningDashboard.classList.add('hidden');
+        if (videoView) videoView.classList.remove('hidden');
     }
 
     renderVideo() {
@@ -311,6 +318,18 @@ class LanguageLearningApp {
             this.currentVideoIndex++;
             this.loadVideo();
         }
+    }
+
+    changeLanguage(language) {
+        this.userData.targetLanguage = language;
+        this.saveUserData();
+        this.updateDashboard();
+    }
+
+    changeLevel(level) {
+        this.userData.proficiencyLevel = level;
+        this.saveUserData();
+        this.updateDashboard();
     }
 }
 
