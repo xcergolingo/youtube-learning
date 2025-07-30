@@ -152,7 +152,6 @@ class LanguageLearningApp {
         document.getElementById('video-progress-bar').style.width = ((this.currentVideoIndex + 1) / videos.length) * 100 + '%';
         
         // Update video info
-        document.getElementById('video-channel').textContent = this.currentVideo.channel;
         document.getElementById('video-duration').textContent = this.currentVideo.duration;
         document.getElementById('video-description').textContent = this.currentVideo.description;
         
