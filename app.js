@@ -22,7 +22,6 @@ class LanguageLearningApp {
         document.getElementById('prev-video').addEventListener('click', () => this.previousVideo());
         document.getElementById('next-video').addEventListener('click', () => this.nextVideo());
         document.getElementById('language-selector')?.addEventListener('change', (e) => this.changeLanguage(e.target.value));
-        document.getElementById('level-selector')?.addEventListener('change', (e) => this.changeLevel(e.target.value));
     }
 
     loadUserData() {
@@ -73,12 +72,10 @@ class LanguageLearningApp {
     }
 
     updateDashboard() {
-        // Update language and level selectors
+        // Update language selector
         const languageSelector = document.getElementById('language-selector');
-        const levelSelector = document.getElementById('level-selector');
         
         if (languageSelector) languageSelector.value = this.userData.targetLanguage;
-        if (levelSelector) levelSelector.value = this.userData.proficiencyLevel;
         
         // Update progress summary
         const totalVideosWatched = Object.values(this.userData.progress).reduce((sum, level) => sum + level.videosWatched.length, 0);
@@ -326,11 +323,6 @@ class LanguageLearningApp {
         this.updateDashboard();
     }
 
-    changeLevel(level) {
-        this.userData.proficiencyLevel = level;
-        this.saveUserData();
-        this.updateDashboard();
-    }
 }
 
 // Global functions for HTML onclick handlers
